@@ -1,4 +1,4 @@
-def mfp(m)
+def func(m)
   ans=0
   for k in 1..m
     tmp=k
@@ -14,7 +14,8 @@ def mfp(m)
   # printf "\nans:%d\n",ans
   return ans
 end
-sum = mfp 10000
+def mfp(m)
+sum = func m
 sqrt = sum ** 0.5
 while sum % 2 == 0
   sum/=2
@@ -34,4 +35,5 @@ end
 if sum == 1
   k = 1
 end
-puts k
+return k
+end
