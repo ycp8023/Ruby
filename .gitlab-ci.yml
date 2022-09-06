@@ -1,0 +1,65 @@
+test-cookbook3:
+  stage: test
+  script:
+    - cd cookbook3
+    - bundle install
+    - rails db:migrate RAILS_ENV=test
+    - PARALLEL_WORKERS=1 rails test
+  only:
+    - cookbook3
+
+deploy-cookbook3:
+  stage: deploy
+  script:
+    - pumactl stop -P /cookbook3/tmp/pids/server.pid || true
+    - rsync -arv --delete ./cookbook3 /
+    - cd /cookbook3
+    - bundle install
+    - rails db:migrate
+    - rails server -d -b 0.0.0.0 -p 3000
+  only:
+  - cookbook3 
+
+test-blog4:
+  stage: test
+  script:
+    - cd blog4
+    - bundle install
+    - rails db:migrate RAILS_ENV=test
+    - PARALLEL_WORKERS=1 rails test
+  only:
+    - blog4
+
+deploy-blog4:
+  stage: deploy
+  script:
+    - pumactl stop -P /blog4/tmp/pids/server.pid || true
+    - rsync -arv --delete ./blog4 /
+    - cd /cookbook3
+    - bundle install
+    - rails db:migrate
+    - rails server -d -b 0.0.0.0 -p 4000
+  only:
+    - blog4
+
+test-project:
+  stage: test
+  script:
+    - cd project
+    - bundle install
+    - rails db:migrate RAILS_ENV=test
+    - PARALLEL_WORKERS=1 rails test
+  only:
+    - cookbook3
+
+deploy-project:
+  stage: deploy
+  script:
+    - pumactl stop -P /project/tmp/pids/server.pid || true
+    - rsync -arv --delete ./project /
+    - cd /project
+    - bundle install
+    - rails db:migrate
+    - rails server -d -b 0.0.0.0 -p 5000
+  only:
+    - project
