@@ -1,0 +1,11 @@
+GEM
+  specs:
+
+PLATFORMS
+  x64-mingw-ucrt
+  x86_64-linux
+
+DEPENDENCIES
+
+BUNDLED WITH
+   2.3.7

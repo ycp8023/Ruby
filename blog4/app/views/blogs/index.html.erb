@@ -1,0 +1,17 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Listing Blogs</h1>
+
+<div id="blogs">
+  <% @blogs.each do |blog| %>
+    <div class="blog">
+      <%= link_to 'Show', blog %>,  Posted <%= time_ago_in_words blog.created_at %> ago. |
+      <%= link_to 'Edit', edit_blog_path(blog) %>
+      <%= link_to 'Destroy', @blog, method: :delete, data: {
+        confirm: 'Are you sure?' } %>
+      <pre><%= blog.content %></pre>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to "New blog", new_blog_path %>

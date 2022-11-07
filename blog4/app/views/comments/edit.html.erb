@@ -1,0 +1,20 @@
+<h1>Editing comment</h1>
+
+<%#= render "form", comment:@comment %>
+<%= render @comment %>
+<br>
+<%= form_for @comment,url:edit_blog_comment_path(@blog,@comment),method: :get do |form| %>
+<div>
+  <%= form.label :content, style: "display: block" %>
+  <%= form.text_area :content %>
+</div>
+
+<div>
+  <%= form.submit "update" %>
+</div>
+<% end %>
+<div>
+  <%= link_to 'Edit',edit_blog_comment_path(@blog,@comment) %> |
+  <%= link_to "Show this comment", blog_comment_path(@blog,@comment) %> |
+  <%= link_to "Back to comments", blog_comments_path %>
+</div>
