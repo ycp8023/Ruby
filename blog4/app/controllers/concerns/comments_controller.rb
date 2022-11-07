@@ -9,9 +9,9 @@ class CommentsController < ApplicationController
 
   # GET /comments/1 or /comments/1.json
   def show
-    @blog = Blog.find(params[:blog_id])
-    @comment = Comment.find(params[:id])
-    @comment.blog = @blog
+      @blog = Blog.find(params[:blog_id])
+      @comment = Comment.find(params[:id])
+      @comment.blog = @blog
   end
 
   # GET /comments/new
@@ -87,16 +87,16 @@ class CommentsController < ApplicationController
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
-  def set_comment
-    @blog=Blog.find(params[:blog_id])
-    @comment = Comment.find(params[:id])
-  end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_comment
+      @blog=Blog.find(params[:blog_id])
+      @comment = Comment.find(params[:id])
+    end
 
-  # Only allow a list of trusted parameters through.
-  def comment_params
-    @blog=Blog.find(params[:blog_id])
-    @comment = Comment.find(params[:id])
-    params.require(:comment).permit(:blog_id, :content)
-  end
+    # Only allow a list of trusted parameters through.
+    def comment_params
+      @blog=Blog.find(params[:blog_id])
+      @comment = Comment.find(params[:id])
+      params.require(:comment).permit(:blog_id, :content)
+    end
 end
