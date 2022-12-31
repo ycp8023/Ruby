@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9096b4b7-a1d0-476f-8795-97636fbf2008" name="Changes" comment="" />
+    <list default="true" id="9096b4b7-a1d0-476f-8795-97636fbf2008" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.gitlab-ci.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blogori/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -135,7 +142,7 @@
       <option name="presentableId" value="Default" />
       <updated>1667817726620</updated>
       <workItem from="1667817728459" duration="2611000" />
-      <workItem from="1672458333431" duration="1034000" />
+      <workItem from="1672458333431" duration="1967000" />
     </task>
     <servers />
   </component>
