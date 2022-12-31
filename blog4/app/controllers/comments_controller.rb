@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
   # GET /comments/1 or /comments/1.json
   def show
     @blog = Blog.find(params[:blog_id])
-    @comment = Comment.find(params[:id])
+    # @comment = Comment.find(params[:id])
     @comment.blog = @blog
   end
 
@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
   # GET /comments/1/edit
   def edit
     @blog = Blog.find(params[:blog_id])
-    @comment = Comment.find(params[:id])
+    # @comment = Comment.find(params[:id])
     @comment.blog = @blog
 
   end
@@ -96,7 +96,7 @@ class CommentsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def comment_params
     @blog=Blog.find(params[:blog_id])
-    @comment = Comment.find(params[:id])
+    # @comment = Comment.find(params[:id])
     params.require(:comment).permit(:blog_id, :content)
   end
 end
