@@ -1,0 +1,58 @@
+<%= form_with(model: product) do |form| %>
+  <% if product.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+        <% product.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :产品名称, style: "display: block" %>
+    <%= form.text_field :product_name %>
+
+  </div>
+
+  <div>
+    <%= form.label :零售价, style: "display: block" %>
+    <%= form.number_field :retail_price %>
+  </div>
+
+  <div>
+    <%= form.label :收藏量, style: "display: block" %>
+    <%= form.number_field :favorites %>
+  </div>
+
+  <div>
+    <%= form.label :销售量, style: "display: block" %>
+    <%= form.number_field :sales %>
+  </div>
+
+  <div>
+    <%= form.label :产品描述, style: "display: block" %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div>
+    <%= form.label :产品图片, style: "display: block" %>
+    <%= form.text_field :image_directory %>
+  </div>
+
+  <div>
+    <%= form.label :适用性别, style: "display: block" %>
+    <%= form.number_field :gender %>
+  </div>
+
+  <div>
+    <%= form.label :添加时间, style: "display: block" %>
+    <%= form.number_field :added_time %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

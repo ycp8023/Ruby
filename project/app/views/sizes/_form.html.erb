@@ -1,0 +1,32 @@
+<%= form_with(model: size) do |form| %>
+  <% if size.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(size.errors.count, "error") %> prohibited this size from being saved:</h2>
+
+      <ul>
+        <% size.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<!--  <div>-->
+    <%#= form.label :product_id, style: "display: block" %>
+    <%#= form.text_field :product_id %>
+<!--  </div>-->
+
+  <div>
+    <%= form.label :尺寸名称, style: "display: block" %>
+    <%= form.text_field :size_name %>
+  </div>
+
+  <div>
+    <%= form.label :尺寸描述, style: "display: block" %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

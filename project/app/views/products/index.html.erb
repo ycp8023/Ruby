@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Products</h1>
+
+<div id="products">
+  <% @products.each do |product| %>
+    <%= render product %>
+    <p>
+      <%= link_to "查看产品详情", product %>
+      <%# if current_user %>
+    </p>
+    <p>
+
+      <%#= render "form", cart_item: @cart_item %>
+    <%= link_to "添加到购物车", new_product_cart_item_path(@product,@cart_item) %>
+    </p>
+  <% end %>
+</div>
+<% if admin_signed_in? %>
+    <%= link_to "添加产品", new_product_path %>
+<% end %>>
