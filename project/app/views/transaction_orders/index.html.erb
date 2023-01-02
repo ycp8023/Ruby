@@ -1,15 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Transaction orders</h1>
+<h1>我的订单</h1>
 
 <div id="transaction_orders">
   <% @transaction_orders.each do |transaction_order| %>
     <%= render transaction_order %>
     <p>
-      <%= link_to "Show this transaction order", transaction_order %>
+      <%= link_to "查看订单详情", transaction_order %>
     </p>
   <% end %>
 </div>
-<% if user_signed_in? %>
-    <%= link_to "New transaction order", new_transaction_order_path %>
-<% end %>
+
+<%#= link_to "创建订单", new_transaction_order_path %>

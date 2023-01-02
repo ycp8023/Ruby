@@ -3,8 +3,8 @@
 <%= render @transaction_order %>
 
 <div>
-  <%= link_to "Edit this transaction order", edit_transaction_order_path(@transaction_order) %> |
-  <%= link_to "Back to transaction orders", transaction_orders_path %>
-
-  <%= button_to "Destroy this transaction order", @transaction_order, method: :delete %>
+  <%= link_to "编辑订单", edit_transaction_order_path(@transaction_order) %> |
+  <%= link_to "返回我的订单", transaction_orders_path %>
+  <%= button_to "确认收货", @transaction_order, method: :accept %>
+  <%= button_to "取消订单", @transaction_order, method: :delete %>
 </div>

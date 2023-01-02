@@ -12,7 +12,8 @@
 
 
     <% if user_signed_in? %>
-        <p>用户已登录</p>
+        <p>用户(id:<%= current_user.id %>)已登录</p>
+
     <% else %>
       <% if admin_signed_in? %>
         <p>管理员已登录.</p>

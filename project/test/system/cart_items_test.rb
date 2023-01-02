@@ -14,7 +14,9 @@ class CartItemsTest < ApplicationSystemTestCase
     visit cart_items_url
     click_on "New cart item"
 
+    fill_in "Product", with: @cart_item.product_id
     fill_in "Quantity", with: @cart_item.quantity
+    fill_in "User", with: @cart_item.user_id
     click_on "Create Cart item"
 
     assert_text "Cart item was successfully created"
@@ -25,7 +27,9 @@ class CartItemsTest < ApplicationSystemTestCase
     visit cart_item_url(@cart_item)
     click_on "Edit this cart item", match: :first
 
+    fill_in "Product", with: @cart_item.product_id
     fill_in "Quantity", with: @cart_item.quantity
+    fill_in "User", with: @cart_item.user_id
     click_on "Update Cart item"
 
     assert_text "Cart item was successfully updated"

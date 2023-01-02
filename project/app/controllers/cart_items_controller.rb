@@ -1,6 +1,4 @@
 class CartItemsController < ApplicationController
-  # before_action :authenticate, except: [:index, :show]
-  # before_action :authenticate_user!
   before_action :set_cart_item, only: %i[ show edit update destroy ]
 
   # GET /cart_items or /cart_items.json
@@ -23,10 +21,7 @@ class CartItemsController < ApplicationController
 
   # POST /cart_items or /cart_items.json
   def create
-    @product = Product.find(params[:product_id])
     @cart_item = CartItem.new(cart_item_params)
-    @cart_item.product = @product
-
 
     respond_to do |format|
       if @cart_item.save
@@ -70,14 +65,6 @@ class CartItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def cart_item_params
-      params.require(:cart_item).permit(:quantity)
+      params.require(:cart_item).permit(:user_id, :product_id, :quantity)
     end
-
-  def authenticate
-    redirect_to login_users_url, alert: 'Must login!' unless current_user
-
-    # authenticate_or_request_with_http_basic "My custom message" do |user_name, password|
-    #   user_name == "ycp" && password == "123"
-    # end
-  end
-  end
+end

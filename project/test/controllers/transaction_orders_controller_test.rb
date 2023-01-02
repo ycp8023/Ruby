@@ -17,7 +17,7 @@ class TransactionOrdersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create transaction_order" do
     assert_difference("TransactionOrder.count") do
-      post transaction_orders_url, params: { transaction_order: { added_time: @transaction_order.added_time, deal_sum: @transaction_order.deal_sum, delivery_address: @transaction_order.delivery_address, delivery_name: @transaction_order.delivery_name, delivery_phone: @transaction_order.delivery_phone, delivery_postcode: @transaction_order.delivery_postcode, order_status: @transaction_order.order_status, user_id: @transaction_order.user_id } }
+      post transaction_orders_url, params: { transaction_order: { cart_item_id: @transaction_order.cart_item_id, delivery_address: @transaction_order.delivery_address, delivery_name: @transaction_order.delivery_name, delivery_phone: @transaction_order.delivery_phone, delivery_postcode: @transaction_order.delivery_postcode, order_status: @transaction_order.order_status, user_id: @transaction_order.user_id } }
     end
 
     assert_redirected_to transaction_order_url(TransactionOrder.last)
@@ -34,7 +34,7 @@ class TransactionOrdersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update transaction_order" do
-    patch transaction_order_url(@transaction_order), params: { transaction_order: { added_time: @transaction_order.added_time, deal_sum: @transaction_order.deal_sum, delivery_address: @transaction_order.delivery_address, delivery_name: @transaction_order.delivery_name, delivery_phone: @transaction_order.delivery_phone, delivery_postcode: @transaction_order.delivery_postcode, order_status: @transaction_order.order_status, user_id: @transaction_order.user_id } }
+    patch transaction_order_url(@transaction_order), params: { transaction_order: { cart_item_id: @transaction_order.cart_item_id, delivery_address: @transaction_order.delivery_address, delivery_name: @transaction_order.delivery_name, delivery_phone: @transaction_order.delivery_phone, delivery_postcode: @transaction_order.delivery_postcode, order_status: @transaction_order.order_status, user_id: @transaction_order.user_id } }
     assert_redirected_to transaction_order_url(@transaction_order)
   end
 

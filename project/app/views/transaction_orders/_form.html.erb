@@ -11,45 +11,41 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :added_time, style: "display: block" %>
-    <%= form.number_field :added_time %>
-  </div>
+<!--  <div>-->
+    <%#= form.label "用户id", style: "display: block" %>
+    <%#= form.text_field :user_id %>
+<!--  </div>-->
+  <%= form.hidden_field :user_id, :value => current_user.id %>
+
+  <!--  隐藏传值！！-->
+  <%= form.hidden_field :cart_item_id, :value => params[:cart_item_id] %>
+
+<!--  <div>-->
+    <%#= form.label :cart_item_id, style: "display: block" %>
+    <%#= form.text_field :cart_item_id %>
+<!--  </div>-->
 
   <div>
-    <%= form.label :deal_sum, style: "display: block" %>
-    <%= form.number_field :deal_sum %>
-  </div>
-
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.number_field :user_id %>
-  </div>
-
-  <div>
-    <%= form.label :delivery_address, style: "display: block" %>
+    <%= form.label :收货地址, style: "display: block" %>
     <%= form.text_field :delivery_address %>
   </div>
 
   <div>
-    <%= form.label :delivery_name, style: "display: block" %>
+    <%= form.label :收件人姓名, style: "display: block" %>
     <%= form.text_field :delivery_name %>
   </div>
 
   <div>
-    <%= form.label :delivery_phone, style: "display: block" %>
+    <%= form.label :电话, style: "display: block" %>
     <%= form.text_field :delivery_phone %>
   </div>
-
+<!--本来是邮编但是将就订单备注使用-->
   <div>
-    <%= form.label :delivery_postcode, style: "display: block" %>
+    <%= form.label :订单备注, style: "display: block" %>
     <%= form.text_field :delivery_postcode %>
   </div>
 
-  <div>
-    <%= form.label :order_status, style: "display: block" %>
-    <%= form.text_field :order_status %>
-  </div>
+  <%= form.hidden_field :order_status, :value => "未发货" %>
 
   <div>
     <%= form.submit %>

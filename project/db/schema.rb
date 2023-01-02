@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_01_134340) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_02_181317) do
+  create_table "addcartships", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_addcartships_on_product_id"
+    t.index ["user_id"], name: "index_addcartships_on_user_id"
+  end
+
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -24,11 +33,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_01_134340) do
   end
 
   create_table "cart_items", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "product_id", null: false
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id", null: false
-    t.integer "product_id", null: false
     t.index ["product_id"], name: "index_cart_items_on_product_id"
     t.index ["user_id"], name: "index_cart_items_on_user_id"
   end
@@ -49,6 +58,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_01_134340) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_designs_on_product_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_favorites_on_product_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "product_types", force: :cascade do |t|
@@ -82,9 +100,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_01_134340) do
   end
 
   create_table "transaction_orders", force: :cascade do |t|
-    t.integer "added_time"
-    t.integer "deal_sum"
-    t.integer "user_id"
+    t.integer "user_id", null: false
+    t.integer "cart_item_id", null: false
     t.string "delivery_address"
     t.string "delivery_name"
     t.string "delivery_phone"
@@ -92,6 +109,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_01_134340) do
     t.string "order_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["cart_item_id"], name: "index_transaction_orders_on_cart_item_id"
+    t.index ["user_id"], name: "index_transaction_orders_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -110,10 +129,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_01_134340) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "addcartships", "users"
+  add_foreign_key "addcartships", "users", column: "product_id"
   add_foreign_key "cart_items", "products"
   add_foreign_key "cart_items", "users"
   add_foreign_key "colors", "products"
   add_foreign_key "designs", "products"
+  add_foreign_key "favorites", "products"
+  add_foreign_key "favorites", "users"
   add_foreign_key "product_types", "products"
   add_foreign_key "sizes", "products"
+  add_foreign_key "transaction_orders", "cart_items"
+  add_foreign_key "transaction_orders", "users"
 end

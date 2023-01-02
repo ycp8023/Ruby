@@ -1,9 +1,8 @@
 class CreateTransactionOrders < ActiveRecord::Migration[7.0]
   def change
     create_table :transaction_orders do |t|
-      t.integer :added_time
-      t.integer :deal_sum
-      t.integer :user_id
+      t.references :user, null: false, foreign_key: true
+      t.references :cart_item, null: false, foreign_key: true
       t.string :delivery_address
       t.string :delivery_name
       t.string :delivery_phone

@@ -14,8 +14,7 @@ class TransactionOrdersTest < ApplicationSystemTestCase
     visit transaction_orders_url
     click_on "New transaction order"
 
-    fill_in "Added time", with: @transaction_order.added_time
-    fill_in "Deal sum", with: @transaction_order.deal_sum
+    fill_in "Cart item", with: @transaction_order.cart_item_id
     fill_in "Delivery address", with: @transaction_order.delivery_address
     fill_in "Delivery name", with: @transaction_order.delivery_name
     fill_in "Delivery phone", with: @transaction_order.delivery_phone
@@ -32,8 +31,7 @@ class TransactionOrdersTest < ApplicationSystemTestCase
     visit transaction_order_url(@transaction_order)
     click_on "Edit this transaction order", match: :first
 
-    fill_in "Added time", with: @transaction_order.added_time
-    fill_in "Deal sum", with: @transaction_order.deal_sum
+    fill_in "Cart item", with: @transaction_order.cart_item_id
     fill_in "Delivery address", with: @transaction_order.delivery_address
     fill_in "Delivery name", with: @transaction_order.delivery_name
     fill_in "Delivery phone", with: @transaction_order.delivery_phone

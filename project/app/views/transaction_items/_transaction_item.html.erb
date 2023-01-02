@@ -1,0 +1,26 @@
+<div id="<%= dom_id transaction_item %>">
+  <strong>创建时间
+    <%= time_ago_in_words(transaction_item.created_at) %>
+  </strong><br />
+
+  <p>
+    <strong>Transaction order:</strong>
+    <%= transaction_item.transaction_order_id %>
+  </p>
+
+  <p>
+    <strong>Product:</strong>
+    <%= transaction_item.product_id %>
+  </p>
+
+  <p>
+    <strong>Quantity:</strong>
+    <%= transaction_item.quantity %>
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    <%= transaction_item.price %>
+  </p>
+
+</div>

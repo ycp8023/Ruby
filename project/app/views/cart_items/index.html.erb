@@ -1,14 +1,17 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Cart items</h1>
+<h1>购物车</h1>
 
 <div id="cart_items">
   <% @cart_items.each do |cart_item| %>
     <%= render cart_item %>
     <p>
-      <%= link_to "Show this cart item", cart_item %>
+      <%= link_to "查看商品详情", cart_item %>    |
+      <%= link_to "生成订单", new_cart_item_transaction_order_path(cart_item) %>
     </p>
+    <br>
   <% end %>
 </div>
 
-<%= link_to "New cart item", new_cart_item_path %>
+<%#= link_to "New cart item", new_cart_item_path %>
+<%= link_to "返回商品列表", products_path %>

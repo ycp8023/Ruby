@@ -1,41 +1,36 @@
 <div id="<%= dom_id transaction_order %>">
   <p>
-    <strong>Added time:</strong>
-    <%= transaction_order.added_time %>
+    <strong>订单创建人：</strong>
+    <%= current_user.id%>
   </p>
 
   <p>
-    <strong>Deal sum:</strong>
-    <%= transaction_order.deal_sum %>
+    <strong>购买产品</strong>
+    <%= transaction_order.cart_item.product.product_name%>
   </p>
 
   <p>
-    <strong>User:</strong>
-    <%= transaction_order.user_id %>
-  </p>
-
-  <p>
-    <strong>Delivery address:</strong>
+    <strong>收货地址</strong>
     <%= transaction_order.delivery_address %>
   </p>
 
   <p>
-    <strong>Delivery name:</strong>
+    <strong>收件人</strong>
     <%= transaction_order.delivery_name %>
   </p>
 
   <p>
-    <strong>Delivery phone:</strong>
+    <strong>电话</strong>
     <%= transaction_order.delivery_phone %>
   </p>
 
   <p>
-    <strong>Delivery postcode:</strong>
+    <strong>订单备注</strong>
     <%= transaction_order.delivery_postcode %>
   </p>
 
   <p>
-    <strong>Order status:</strong>
+    <strong>订单当前状态</strong>
     <%= transaction_order.order_status %>
   </p>
 

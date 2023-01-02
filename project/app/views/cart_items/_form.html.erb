@@ -11,12 +11,18 @@
     </div>
   <% end %>
 
-<!--  <div>-->
-    <%#= form.label :产品名称, style: "display: block" %>
-    <%#= form.text_field :product %>
-<!--  </div>-->
   <div>
-    <%= form.label :加购数量, style: "display: block" %>
+    <%= form.label "用户id(chrome浏览器下拉默认）" , style: "display: block" %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div>
+    <%= form.label "产品id(下拉默认)", style: "display: block" %>
+    <%= form.text_field :product_id %>
+  </div>
+
+  <div>
+    <%= form.label "加购数量", style: "display: block" %>
     <%= form.number_field :quantity %>
   </div>
 

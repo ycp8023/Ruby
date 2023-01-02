@@ -13,10 +13,11 @@
   <%= link_to "添加到购物车", new_product_cart_item_path(@product,@cart_item) %>  |
   <%= link_to "返回产品列表", products_path %>
   </div>
-<h2>Sizes</h2>
+<h2>尺寸信息</h2>
 <div id="sizes">
   <%= render :partial => @product.sizes %>
 </div>
+<% if admin_signed_in? %>
 <%= form_for [@product, Size.new] do |f| %>
   <p>
     <%= f.label :size_name, "尺寸名称" %> <br />
@@ -29,11 +30,13 @@
   </p>
   <p><%= f.submit "添加尺寸" %></p>
 <% end %>
+<% end %>
 
-<h2>Colors</h2>
+<h2>颜色信息</h2>
 <div id="colors">
   <%= render :partial => @product.colors %>
 </div>
+<% if admin_signed_in? %>
 <%= form_for [@product, Color.new] do |f| %>
   <p>
     <%= f.label :rgb, "颜色" %> <br />
@@ -46,11 +49,13 @@
   </p>
   <p><%= f.submit "添加颜色" %></p>
 <% end %>
+  <% end %>
 
-<h2>Designs</h2>
+<h2>设计信息</h2>
 <div id="designs">
   <%= render :partial => @product.designs %>
 </div>
+<% if admin_signed_in? %>
 <%= form_for [@product, Design.new] do |f| %>
   <p>
     <%= f.label :sales, "销售" %> <br />
@@ -61,4 +66,5 @@
     <%= f.text_field :design_number %>
   </p>
   <p><%= f.submit "添加设计" %></p>
+<% end %>
 <% end %>

@@ -1,6 +1,22 @@
 <div id="<%= dom_id cart_item %>">
+<!--  <p>-->
+<!--    <strong>User:</strong>-->
+    <%#= cart_item.user_id %>
+<!--  </p>-->
+
   <p>
-    <strong>加购数量</strong>
+    <strong>产品编号</strong> <%= cart_item.product.id %>
+  </p>
+  <p>
+    <strong>产品名称</strong> <%= cart_item.product.product_name %>
+  </p>
+  <p>
+    <strong>产品售价</strong> <%= cart_item.product.retail_price %>
+  </p>
+
+
+  <p>
+    <strong>加购数量:</strong>
     <%= cart_item.quantity %>
   </p>
 

@@ -1,5 +1,4 @@
 class TransactionOrdersController < ApplicationController
-  # before_action :authenticate_admin!
   before_action :set_transaction_order, only: %i[ show edit update destroy ]
 
   # GET /transaction_orders or /transaction_orders.json
@@ -47,7 +46,9 @@ class TransactionOrdersController < ApplicationController
       end
     end
   end
-
+  def accept
+    @transaction_order.order_status="已收货"
+  end
   # DELETE /transaction_orders/1 or /transaction_orders/1.json
   def destroy
     @transaction_order.destroy
@@ -66,6 +67,6 @@ class TransactionOrdersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def transaction_order_params
-      params.require(:transaction_order).permit(:added_time, :deal_sum, :user_id, :delivery_address, :delivery_name, :delivery_phone, :delivery_postcode, :order_status)
+      params.require(:transaction_order).permit(:user_id, :cart_item_id, :delivery_address, :delivery_name, :delivery_phone, :delivery_postcode, :order_status)
     end
 end

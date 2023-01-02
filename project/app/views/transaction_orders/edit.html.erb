@@ -1,9 +1,61 @@
 <h1>Editing transaction order</h1>
 
-<%= render "form", transaction_order: @transaction_order %>
+<%#= render "form", transaction_order: @transaction_order %>
 
 <br>
+<%= form_with(model: @transaction_order) do |form| %>
+  <% if @transaction_order.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(@transaction_order.errors.count, "error") %> prohibited this transaction_order from being saved:</h2>
 
+      <ul>
+        <% @transaction_order.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!--  <div>-->
+  <%#= form.label "用户id", style: "display: block" %>
+  <%#= form.text_field :user_id %>
+  <!--  </div>-->
+  <%= form.hidden_field :user_id, :value => current_user.id %>
+
+  <!--  隐藏传值！！-->
+  <%= form.hidden_field :cart_item_id, :value => @transaction_order.cart_item.id %>
+
+  <!--  <div>-->
+  <%#= form.label :cart_item_id, style: "display: block" %>
+  <%#= form.text_field :cart_item_id %>
+  <!--  </div>-->
+
+  <div>
+    <%= form.label :收货地址, style: "display: block" %>
+    <%= form.text_field :delivery_address %>
+  </div>
+
+  <div>
+    <%= form.label :收件人姓名, style: "display: block" %>
+    <%= form.text_field :delivery_name %>
+  </div>
+
+  <div>
+    <%= form.label :电话, style: "display: block" %>
+    <%= form.text_field :delivery_phone %>
+  </div>
+  <!--本来是邮编但是将就订单备注使用-->
+  <div>
+    <%= form.label :订单备注, style: "display: block" %>
+    <%= form.text_field :delivery_postcode %>
+  </div>
+
+  <%= form.hidden_field :order_status, :value => "未发货" %>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
 <div>
   <%= link_to "Show this transaction order", @transaction_order %> |
   <%= link_to "Back to transaction orders", transaction_orders_path %>

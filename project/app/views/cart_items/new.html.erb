@@ -1,9 +1,10 @@
-<h1>New cart item</h1>
+<h1>加入购物车</h1>
 
 <%= render "form", cart_item: @cart_item %>
 
 <br>
 
 <div>
-  <%= link_to "Back to cart items", product_cart_items_url %>
+  <%= link_to "返回购物车", cart_items_path %>
+  <%= link_to "返回产品列表", products_path %>
 </div>
