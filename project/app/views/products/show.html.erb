@@ -11,7 +11,7 @@
 <% end %>
   <div>
     <% if @product.stared?(current_user) %>
-    <%= button_to "收藏产品",product_stars_path(@product) ,method:"put" ,disabled:true%>
+    <%= button_to "已收藏",product_stars_path(@product) ,method:"delete" ,disabled:true%>
     <% else %>
       <%= button_to "收藏产品",product_stars_path(@product) ,method:"put"%>
       <% end %>

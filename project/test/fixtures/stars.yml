@@ -1,9 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user_id: one
-  product_id: one
+  user: one
+  product: one
 
 two:
-  user_id: two
-  product_id: two
+  user: two
+  product: two

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_03_035921) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_03_055426) do
   create_table "actions", force: :cascade do |t|
     t.string "action_type", limit: 64, null: false
     t.string "action_option", limit: 64
@@ -127,12 +127,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_03_035921) do
   end
 
   create_table "stars", force: :cascade do |t|
-    t.integer "user_id_id", null: false
-    t.integer "product_id_id", null: false
+    t.integer "user_id", null: false
+    t.integer "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id_id"], name: "index_stars_on_product_id_id"
-    t.index ["user_id_id"], name: "index_stars_on_user_id_id"
+    t.index ["product_id"], name: "index_stars_on_product_id"
+    t.index ["user_id"], name: "index_stars_on_user_id"
   end
 
   create_table "transaction_orders", force: :cascade do |t|
@@ -175,8 +175,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_03_035921) do
   add_foreign_key "favorites", "users"
   add_foreign_key "product_types", "products"
   add_foreign_key "sizes", "products"
-  add_foreign_key "stars", "product_ids"
-  add_foreign_key "stars", "user_ids"
+  add_foreign_key "stars", "products"
+  add_foreign_key "stars", "users"
   add_foreign_key "transaction_orders", "cart_items"
   add_foreign_key "transaction_orders", "users"
 end

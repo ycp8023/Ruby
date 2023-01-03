@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  put '/post/:id/stars',to: 'products#star',as: 'star'
+  put '/products/:id/stars',to: 'products#star',as: 'star'
+  get '/products/stars' ,to: 'products#star#index',as: 'stars'
+  # delete '/products/:id/stars',to: 'products#star',as: 'star'
   resources :favorites
 
   get 'home/index'
