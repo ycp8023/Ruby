@@ -10,4 +10,6 @@ class Product < ApplicationRecord
   def stared?(user)
     !!self.stars.find{|star| star.user_id == user.id}
   end
+
+  mount_uploader :pic, PicUploader
 end

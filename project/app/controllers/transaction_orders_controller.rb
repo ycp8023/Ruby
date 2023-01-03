@@ -6,13 +6,22 @@ class TransactionOrdersController < ApplicationController
     @transaction_orders = TransactionOrder.all
   end
 
+  def sendprod
+    @transaction_order=TransactionOrder.all.find(params[:id])
+    Sendprod.create(admin:current_admin,transaction_order:@transaction_order)
+    @transaction_order.order_status="已发货"
+    @transaction_order.update(transaction_order_params)
+    redirect_to transaction_order_path(@transaction_order)
+  end
   # GET /transaction_orders/1 or /transaction_orders/1.json
   def show
   end
 
   # GET /transaction_orders/new
   def new
+    @cart_item=CartItem.all.find(params[:cart_item_id])
     @transaction_order = TransactionOrder.new
+
   end
 
   # GET /transaction_orders/1/edit
@@ -22,6 +31,8 @@ class TransactionOrdersController < ApplicationController
   # POST /transaction_orders or /transaction_orders.json
   def create
     @transaction_order = TransactionOrder.new(transaction_order_params)
+    @cart_item=CartItem.all.find(@transaction_order.cart_item_id)
+    # @cart_item.destroy
 
     respond_to do |format|
       if @transaction_order.save

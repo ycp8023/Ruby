@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_03_055426) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_03_152512) do
   create_table "actions", force: :cascade do |t|
     t.string "action_type", limit: 64, null: false
     t.string "action_option", limit: 64
@@ -115,6 +115,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_03_055426) do
     t.integer "added_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "pic"
+  end
+
+  create_table "sendprods", force: :cascade do |t|
+    t.integer "admin_id", null: false
+    t.integer "transaction_order_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_sendprods_on_admin_id"
+    t.index ["transaction_order_id"], name: "index_sendprods_on_transaction_order_id"
   end
 
   create_table "sizes", force: :cascade do |t|
@@ -174,6 +184,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_03_055426) do
   add_foreign_key "favorites", "products"
   add_foreign_key "favorites", "users"
   add_foreign_key "product_types", "products"
+  add_foreign_key "sendprods", "admins"
+  add_foreign_key "sendprods", "transaction_orders"
   add_foreign_key "sizes", "products"
   add_foreign_key "stars", "products"
   add_foreign_key "stars", "users"

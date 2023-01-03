@@ -1,14 +1,56 @@
 <p style="color: green"><%= notice %></p>
-
-<h1>Users</h1>
-
-<div id="users">
-  <% @users.each do |user| %>
-    <%= render user %>
-    <p>
-      <%= link_to "Show this user", user %>
-    </p>
-  <% end %>
+<style>
+    body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.428571429;
+        color: #333333;
+        background-color: #ffffff;
+    }
+    .panel{
+        width: 60%;
+        margin: auto;
+        margin-bottom: 25px;
+    }
+    h2{
+        margin: auto;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+</style>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">个人信息</h3>
+  </div>
+  <div class="panel-body">
+  <p>
+    <strong>用户名:</strong>
+    <%= "普通村民" %>
+  </p>
+  </div>
+  <div class="panel-body">
+    <strong>邮箱：</strong><%= current_user.email %>
+  </div>
+  <div class="panel-body">
+    <strong>用户id：</strong><%= current_user.id %>
+  </div>
+  <div class="panel-body">
+    <strong>账户创建时间：</strong><%= current_user.created_at %>
+  </div>
+  <div class="panel-body">
+    <strong>账户更新时间：</strong><%= current_user.updated_at %>
+  </div>
+  <div class="panel-body">
+    <%= link_to "修改信息",  edit_user_registration_path(@current_user) %>
+  </div>
 </div>
+<!--<div id="users">-->
+  <%# @users.each do |user| %>
+    <%#= render user %>
+<!--    <p>-->
+      <%#= link_to "Show this user", user %>
+<!--    </p>-->
+  <%# end %>
+<!--</div>-->
 
-<%= link_to "New user", new_user_path %>
+<%#= link_to "New user", new_user_path %>

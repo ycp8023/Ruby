@@ -1,10 +1,48 @@
 <p style="color: green"><%= notice %></p>
-
+<style>
+    body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.428571429;
+        color: #333333;
+        background-color: #ffffff;
+    }
+    .panel{
+        width: 60%;
+        margin: auto;
+        margin-bottom: 25px;
+    }
+    h2{
+        margin: auto;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+</style>
+<div class="panel panel-danger">
+  <div class="panel-heading">
+    <h3 class="panel-title">订单详情</h3>
+  </div>
+  <div class="panel-body">
 <%= render @transaction_order %>
 
+<% if user_signed_in? %>
 <div>
   <%= link_to "编辑订单", edit_transaction_order_path(@transaction_order) %> |
   <%= link_to "返回我的订单", transaction_orders_path %>
+  <br><br>
+
   <%= button_to "确认收货", @transaction_order, method: :accept %>
+<% end %>
+<% if admin_signed_in? %>
+      <% if @transaction_order.sendproded?(current_admin) %>
+        <%= button_to "已发货",sendprod_path(@transaction_order), method:"put" ,disabled: true%>
+        <% else %>
+        <%= button_to "发货",sendprod_path(@transaction_order), method:"put" %>
+      <% end %>
+  <% end %>
+  <br>
   <%= button_to "取消订单", @transaction_order, method: :delete %>
+  <%= link_to "返回订单列表", transaction_orders_path %>
+</div>
+  </div>
 </div>

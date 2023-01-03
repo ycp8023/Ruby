@@ -1,29 +1,63 @@
-<h2>Sign up</h2>
+<style>
+    body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.428571429;
+        color: #333333;
+        background-color: #ffffff;
+    }
+    .panel{
+        width: 30%;
+        margin: auto;
+        margin-bottom: 25px;
+        margin-top: 150px;
+    }
+    h2{
+        margin: auto;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+</style>
 
+
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">用户注册</h3>
+      </div>
+      <div class="panel-body">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name),data: { turbo: false }) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :用户名 %><br />
+    <%= f.text_field :user_name, autofocus: true, autocomplete: "username" %>
+  </div>
+  <div class="field">
+    <%= f.label :邮箱 %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :密码 %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(不少于<%= @minimum_password_length %> 字符)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :密码确认 %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
-
+  <div class="field">
+    <%= f.label :电话 %><br />
+    <%= f.text_field :phone, autofocus: true, autocomplete: "phone" %>
+  </div>
+          <br>
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "注册" %>
   </div>
 <% end %>
-
+<br>
 <%= render "users/shared/links" %>
+      </div></div>

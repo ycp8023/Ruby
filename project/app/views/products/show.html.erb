@@ -1,25 +1,68 @@
 <p style="color: green"><%= notice %></p>
-
+<style>
+    body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.428571429;
+        color: #333333;
+        background-color: #ffffff;
+    }
+    .panel{
+        width: 60%;
+        margin: auto;
+        margin-bottom: 25px;
+    }
+    h2{
+        margin: auto;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+</style>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">产品详情</h3>
+  </div>
+  <div class="panel-body">
 <%= render @product %>
-<% if admin_signed_in? %>
-<div>
-  <%= link_to "编辑产品", edit_product_path(@product) %> |
-  <%= link_to "返回产品列表", products_path %>
 
+
+<!--    <p>-->
+<!--      <strong>产品图片</strong>-->
+      <%#= image_tag(@product.pic)  %>
+<!--    </p>-->
+
+
+<% if admin_signed_in? %>
+      <%= link_to "返回产品列表", products_path %>  |
+  <%= link_to "编辑产品", edit_product_path(@product) %>
+      <br>
+  <div>
   <%= button_to "删除产品", @product, method: :delete %>
 </div>
 <% end %>
+<% if user_signed_in? %>
   <div>
     <% if @product.stared?(current_user) %>
     <%= button_to "已收藏",product_stars_path(@product) ,method:"delete" ,disabled:true%>
     <% else %>
       <%= button_to "收藏产品",product_stars_path(@product) ,method:"put"%>
+      <br>
       <% end %>
   <%= link_to "添加到购物车", new_product_cart_item_path(@product,@cart_item) %>  |
+    <%= link_to "返回产品列表", products_path %>
+  <% end %>
 
-  <%= link_to "返回产品列表", products_path %>
   </div>
-<h2>尺寸信息</h2>
+  </div>
+</div>
+<div class="container"style="width:60%;padding:0">
+  <div class="row" >
+    <div class="col">
+<div class="panel panel-success" style="width:100%">
+  <div class="panel-heading">
+    <h3 class="panel-title">尺寸信息</h3>
+  </div>
+  <div class="panel-body">
 <div id="sizes">
   <%= render :partial => @product.sizes %>
 </div>
@@ -37,40 +80,61 @@
   <p><%= f.submit "添加尺寸" %></p>
 <% end %>
 <% end %>
-
-<h2>颜色信息</h2>
-<div id="colors">
-  <%= render :partial => @product.colors %>
+  </div>
 </div>
-<% if admin_signed_in? %>
-<%= form_for [@product, Color.new] do |f| %>
-  <p>
-    <%= f.label :rgb, "颜色" %> <br />
-    <%= f.text_field :rgb %>
-  </p>
-  <p>
-    <%= f.label :description, "颜色描述" %> <br />
-    <%= f.text_field :description %>
+    </div>
+    <div class="col">
+      <div class="panel panel-warning" style="width:100%">
+          <div class="panel-heading">
+          <h3 class="panel-title">颜色信息</h3>
+          </div>
+            <div class="panel-body">
+          <div id="colors">
+            <%= render :partial => @product.colors %>
+          <% if admin_signed_in? %>
+            <%= form_for [@product, Color.new] do |f| %>
+              <p>
+                <%= f.label :rgb, "颜色" %> <br />
+                <%= f.text_field :rgb %>
+              </p>
+              <p>
+                <%= f.label :description, "颜色描述" %> <br />
+                <%= f.text_field :description %>
 
-  </p>
-  <p><%= f.submit "添加颜色" %></p>
-<% end %>
-  <% end %>
-
-<h2>设计信息</h2>
-<div id="designs">
-  <%= render :partial => @product.designs %>
+              </p>
+              <p><%= f.submit "添加颜色" %></p>
+            <% end %>
+          <% end %>
+        </div>
+        </div>
+      </div>
+  </div>
+    <div class="col">
+      <div class="panel panel-info" style="width:100%">
+        <div class="panel-heading">
+          <h3 class="panel-title">设计信息</h3>
+        </div>
+        <div class="panel-body">
+          <div id="designs">
+            <%= render :partial => @product.designs %>
+          </div>
+          <% if admin_signed_in? %>
+            <%= form_for [@product, Design.new] do |f| %>
+              <p>
+                <%= f.label :sales, "销售" %> <br />
+                <%= f.text_field :sales %>
+              </p>
+              <p>
+                <%= f.label :design_number, "编码" %> <br />
+                <%= f.text_field :design_number %>
+              </p>
+              <p><%= f.submit "添加设计" %></p>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<% if admin_signed_in? %>
-<%= form_for [@product, Design.new] do |f| %>
-  <p>
-    <%= f.label :sales, "销售" %> <br />
-    <%= f.text_field :sales %>
-  </p>
-  <p>
-    <%= f.label :design_number, "编码" %> <br />
-    <%= f.text_field :design_number %>
-  </p>
-  <p><%= f.submit "添加设计" %></p>
-<% end %>
-<% end %>
+
+

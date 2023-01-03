@@ -1,9 +1,16 @@
 <div id="<%= dom_id transaction_order %>">
+<% if user_signed_in? %>
   <p>
     <strong>订单创建人：</strong>
     <%= current_user.id%>
   </p>
-
+<% end %>
+<% if admin_signed_in? %>
+    <p>
+      <strong>订单创建用户id：</strong>
+      <%= transaction_order.user.id%>
+    </p>
+<% end %>
   <p>
     <strong>购买产品</strong>
     <%= transaction_order.cart_item.product.product_name%>

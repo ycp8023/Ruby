@@ -1,14 +1,51 @@
 <p style="color: green"><%= notice %></p>
+<style>
+    body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.428571429;
+        color: #333333;
+        background-color: #ffffff;
+    }
+    .panel{
+        width: 60%;
+        margin: auto;
+        margin-bottom: 25px;
+    }
+    h2{
+        margin: auto;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+</style>
+<% if user_signed_in? %>
+<h2>我的订单</h2>
+<% end %>
+<% if admin_signed_in? %>
+  <h2>订单列表</h2>
+<% end %>
 
-<h1>我的订单</h1>
-
-<div id="transaction_orders">
   <% @transaction_orders.each do |transaction_order| %>
+  <% if transaction_order.cured?(current_user) %>
+  <div class="panel panel-danger">
+  <div class="panel-heading">
+    <h3 class="panel-title">订单详情</h3>
+  </div>
+  <div class="panel-body">
+    <div id="transaction_orders">
     <%= render transaction_order %>
+    <div>
+      <p>
+        <strong>订单创建时间：</strong><%= transaction_order.created_at %>
+      </p>
+    </div>
     <p>
       <%= link_to "查看订单详情", transaction_order %>
     </p>
-  <% end %>
+   </div>
 </div>
-
+  </div>
+<% end %>
+  <% end %>
 <%#= link_to "创建订单", new_transaction_order_path %>
+

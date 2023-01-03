@@ -1,4 +1,28 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
+<style>
+    body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.428571429;
+        color: #333333;
+        background-color: #ffffff;
+    }
+    .panel{
+        width: 40%;
+        margin: auto;
+        margin-bottom: 25px;
+    }
+    h2{
+        margin: auto;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+</style>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">用户登录</h3>
+  </div>
+  <div class="panel-body">
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
@@ -30,14 +54,16 @@
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
-
+<br>
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "确认修改" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3>注销账户</h3>
 
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-<%= link_to "Back", :back %>
+<%= link_to "返回", :back %>
+  </div>
+</div>

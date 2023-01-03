@@ -51,7 +51,10 @@
     <%= form.label :添加时间, style: "display: block" %>
     <%= form.number_field :added_time %>
   </div>
-
+  <div>
+    <%= form.label :上传图片, style: "display: block" %>
+    <%= form.file_field :pic %>
+  </div>
   <div>
     <%= form.submit %>
   </div>

@@ -29,6 +29,13 @@ class ProductsController < ApplicationController
   # POST /products or /products.json
   def create
     @product = Product.new(product_params)
+    @product.pic = params[:file]
+
+    uploader = PicUploader.new
+
+    uploader.store!(@product.pic)
+
+    uploader.retrieve_from_store!(@product.image_directory)
 
     respond_to do |format|
       if @product.save
@@ -72,6 +79,6 @@ class ProductsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:product_name, :retail_price, :favorites, :sales, :description, :image_directory, :gender, :added_time)
+      params.require(:product).permit(:product_name, :retail_price, :favorites, :sales, :description, :image_directory, :gender, :added_time,:pic)
     end
 end

@@ -1,13 +1,39 @@
-<h2>LOG IN FOR ADMIN</h2>
+
+
+<style>
+    body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.428571429;
+        color: #333333;
+        background-color: #ffffff;
+    }
+    .panel{
+        width: 600px;
+        margin: auto;
+        margin-top: 150px;
+        margin-bottom: 25px;
+    }
+    h2{
+        margin: auto;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+</style>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">管理员登录</h3>
+  </div>
+  <div class="panel-body">
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :邮箱 %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
+    <%= f.label :密码 %><br />
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
@@ -17,10 +43,12 @@
       <%= f.label :remember_me %>
     </div>
   <% end %>
-
+<br>
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "登录" %>
   </div>
+      <br>
 <% end %>
 
 <%= render "admins/shared/links" %>
+  </div></div>

@@ -8,29 +8,67 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    <style type="text/css">
-
-    </style>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
+<body>
+  <nav class="navbar navbar-default" role="navigation">
+
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">呜呜rails学不会の简易电商平台</a>
+      </div>
+      <div>
+        <% if user_signed_in? %>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">用户(id:<%= current_user.id %>):村民已登录</a></li>
+          </ul>
+          <ul class="nav navbar-nav">
+            <li><%= link_to "产品列表", products_path %></li>
+          </ul>
+          <ul class="nav navbar-nav">
+            <li><%= link_to "购物车", cart_items_path %></li>
+          </ul>
+          <ul class="nav navbar-nav">
+            <li><%= link_to "我的订单", transaction_orders_path %></li>
+          </ul>
+          <ul class="nav navbar-nav">
+            <li><%= link_to "个人中心", users_index_path %></li>
+          </ul>
+          <ul class="nav navbar-nav" style="margin-top: 10px">
+            <%= button_to "登出", destroy_user_session_path(@current_user),method: :delete %>
+          </ul>
+        <% else %>
+          <% if admin_signed_in? %>
+            <p>管理员已登录.</p>
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">管理员(id:<%= current_admin.id %>):村民已登录</a></li>
+            </ul>
+            <ul class="nav navbar-nav">
+              <li><%= link_to "产品管理", products_path %></li>
+            </ul>
+            <ul class="nav navbar-nav">
+              <li><%= link_to "订单管理", transaction_orders_path %></li>
+            </ul>
+            <ul class="nav navbar-nav" style="margin-top: 10px">
+              <%= button_to "登出", destroy_user_session_path(@current_user),method: :delete %>
+            </ul>
+          <% else %>
+            <ul class="nav navbar-nav">
+              <li><%= link_to "用户登录", user_session_path %></li>
+            </ul>
+            <ul class="nav navbar-nav">
+              <li><%= link_to "管理员登录", admin_session_path %></li>
+            </ul>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </nav>
 
 
-    <% if user_signed_in? %>
-        <p>用户(id:<%= current_user.id %>)已登录</p>
 
-    <% else %>
-      <% if admin_signed_in? %>
-        <p>管理员已登录.</p>
-        <%= link_to '产品管理', products_path %>
-        <%= link_to '订单管理', transaction_orders_path %>
-      <% else %>
-        <p>尚未登录</p>
-        <%= link_to '用户登录', user_session_path %>
-        <%= link_to '管理员登录', admin_session_path %>
-      <% end %>
-    <% end %>
-
-
-  <body>
 
 
     <%= yield %>

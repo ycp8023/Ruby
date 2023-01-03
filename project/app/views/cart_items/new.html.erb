@@ -1,10 +1,39 @@
-<h1>加入购物车</h1>
 
-<%= render "form", cart_item: @cart_item %>
+<style>
+    body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.428571429;
+        color: #333333;
+        background-color: #ffffff;
+    }
+    .panel{
+        width: 60%;
+        margin: auto;
+        margin-bottom: 25px;
+    }
+    h2{
+        margin: auto;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+</style>
+<div class="panel panel-warning">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      加入购物车
+    </h3>
+  </div>
+  <div class="panel-body">
+    <%= render "form", cart_item: @cart_item %>
+    <br>
 
-<br>
 
-<div>
-  <%= link_to "返回购物车", cart_items_path %>
-  <%= link_to "返回产品列表", products_path %>
+    <div>
+      <%= link_to "返回购物车", cart_items_path %>
+      <%= link_to "返回产品列表", products_path %>
+    </div>
+
+  </div>
 </div>
+

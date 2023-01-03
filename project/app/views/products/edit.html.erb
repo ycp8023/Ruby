@@ -1,5 +1,28 @@
+<style>
+    body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.428571429;
+        color: #333333;
+        background-color: #ffffff;
+    }
+    .panel{
+        width: 60%;
+        margin: auto;
+        margin-bottom: 25px;
+    }
+    h2{
+        margin: auto;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+</style>
 <h1>Editing product</h1>
-
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">产品详情</h3>
+  </div>
+  <div class="panel-body">
 <%= render "form", product: @product %>
 
 <br>
@@ -7,4 +30,6 @@
 <div>
   <%= link_to "查看产品信息", @product %> |
   <%= link_to "返回产品列表", products_path %>
+</div>
+  </div>
 </div>

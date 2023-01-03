@@ -1,12 +1,15 @@
 Rails.application.routes.draw do
   put '/products/:id/stars',to: 'products#star',as: 'star'
+  put '/transaction_orders/:id/sendprods',to:'transaction_orders#sendprod',as:'sendprod'
   get '/products/stars' ,to: 'products#star#index',as: 'stars'
   # delete '/products/:id/stars',to: 'products#star',as: 'star'
   resources :favorites
-
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
+  get 'users/index'
   get 'home/index'
   devise_for :admins
-  devise_for :users
   root "home#index"
   resources :product_types
   resources :products do

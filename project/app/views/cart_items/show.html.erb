@@ -1,5 +1,28 @@
 <p style="color: green"><%= notice %></p>
-
+<style>
+    body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.428571429;
+        color: #333333;
+        background-color: #ffffff;
+    }
+    .panel{
+        width: 60%;
+        margin: auto;
+        margin-bottom: 25px;
+    }
+    h2{
+        margin: auto;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+</style>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">产品详情</h3>
+  </div>
+  <div class="panel-body">
 <%= render @cart_item %>
 <p>
   <strong>产品收藏量</strong> <%= @cart_item.product.favorites %>
@@ -20,7 +43,8 @@
   <%= link_to "编辑加购信息", edit_cart_item_path(@cart_item) %> |
   <%= link_to "返回购物车", cart_items_path %> |
   <%= link_to "生成订单", new_cart_item_transaction_order_path(@cart_item,@transaction_order) %>
-
-
-  <%= button_to "Destroy this cart item", @cart_item, method: :delete %>
+<br><br>
+ <%= button_to "移除", @cart_item, method: :delete %>
+</div>
+  </div>
 </div>

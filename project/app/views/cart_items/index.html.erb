@@ -1,14 +1,39 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>购物车</h1>
-
+<h2>购物车</h2>
+<style>
+    body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.428571429;
+        color: #333333;
+        background-color: #ffffff;
+    }
+    .panel{
+        width: 60%;
+        margin: auto;
+        margin-bottom: 25px;
+    }
+    h2{
+        margin: auto;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+</style>
 <div id="cart_items">
   <% @cart_items.each do |cart_item| %>
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">订单号<%= cart_item.id %></h3>
+      </div>
+      <div class="panel-body">
     <%= render cart_item %>
     <p>
       <%= link_to "查看商品详情", cart_item %>    |
       <%= link_to "生成订单", new_cart_item_transaction_order_path(cart_item) %>
     </p>
+      </div>
+    </div>
     <br>
   <% end %>
 </div>
