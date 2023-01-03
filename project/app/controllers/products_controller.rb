@@ -11,6 +11,11 @@ class ProductsController < ApplicationController
   def show
   end
 
+  def star
+    @product=Product.all.find(params[:id])
+    Star.create(user_id:current_user.id,product_id:@product.product_id)
+    redirect_to product_path(@product)
+  end
   # GET /products/new
   def new
     @product = Product.new

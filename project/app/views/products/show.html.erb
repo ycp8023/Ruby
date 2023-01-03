@@ -10,7 +10,13 @@
 </div>
 <% end %>
   <div>
+    <% if @product.stared?(current_user) %>
+    <%= button_to "收藏产品",product_stars_path(@product) ,method:"put" ,disabled:true%>
+    <% else %>
+      <%= button_to "收藏产品",product_stars_path(@product) ,method:"put"%>
+      <% end %>
   <%= link_to "添加到购物车", new_product_cart_item_path(@product,@cart_item) %>  |
+
   <%= link_to "返回产品列表", products_path %>
   </div>
 <h2>尺寸信息</h2>

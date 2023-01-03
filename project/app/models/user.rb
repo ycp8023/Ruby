@@ -9,4 +9,8 @@ class User < ApplicationRecord
 
   has_many :addcartships
   has_many :products, through: :addcartships
+
+  has_many :stars
+
+  action_store :like, :product, action_class_name: "Like"
 end

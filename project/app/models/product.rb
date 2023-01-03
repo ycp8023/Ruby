@@ -5,4 +5,9 @@ class Product < ApplicationRecord
 
   has_many :cart_items
   has_many :users, :through => :cart_items
+
+  has_many :stars
+  def stared?(user)
+    !!self.stars.find{|star| star.user_id == user.id}
+  end
 end

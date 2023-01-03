@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_02_181317) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_03_035921) do
+  create_table "actions", force: :cascade do |t|
+    t.string "action_type", limit: 64, null: false
+    t.string "action_option", limit: 64
+    t.string "target_type", limit: 64
+    t.bigint "target_id"
+    t.string "user_type", limit: 64
+    t.bigint "user_id"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.index ["action_type", "target_type", "target_id", "user_type", "user_id"], name: "uk_action_target_user", unique: true
+    t.index ["target_type", "target_id", "action_type"], name: "index_actions_on_target_type_and_target_id_and_action_type"
+    t.index ["user_type", "user_id", "action_type"], name: "index_actions_on_user_type_and_user_id_and_action_type"
+  end
+
   create_table "addcartships", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "product_id", null: false
@@ -69,6 +83,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_02_181317) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.string "action_type", limit: 64, null: false
+    t.string "action_option", limit: 64
+    t.string "target_type", limit: 64
+    t.bigint "target_id"
+    t.string "user_type", limit: 64
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["target_type", "target_id", "action_type"], name: "index_likes_on_target_type_and_target_id_and_action_type"
+    t.index ["user_type", "user_id", "action_type"], name: "index_likes_on_user_type_and_user_id_and_action_type"
+  end
+
   create_table "product_types", force: :cascade do |t|
     t.integer "product_id", null: false
     t.string "product_type_name"
@@ -97,6 +124,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_02_181317) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_id"], name: "index_sizes_on_product_id"
+  end
+
+  create_table "stars", force: :cascade do |t|
+    t.integer "user_id_id", null: false
+    t.integer "product_id_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id_id"], name: "index_stars_on_product_id_id"
+    t.index ["user_id_id"], name: "index_stars_on_user_id_id"
   end
 
   create_table "transaction_orders", force: :cascade do |t|
@@ -139,6 +175,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_02_181317) do
   add_foreign_key "favorites", "users"
   add_foreign_key "product_types", "products"
   add_foreign_key "sizes", "products"
+  add_foreign_key "stars", "product_ids"
+  add_foreign_key "stars", "user_ids"
   add_foreign_key "transaction_orders", "cart_items"
   add_foreign_key "transaction_orders", "users"
 end

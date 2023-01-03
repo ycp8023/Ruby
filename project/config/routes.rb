@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  put '/post/:id/stars',to: 'products#star',as: 'star'
   resources :favorites
 
   get 'home/index'
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
     resources :colors
     resources :sizes
     resources :cart_items
+    resources :stars
   end
   resources :cart_items do
     resources :transaction_orders do
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
     end
   end
   resources :transaction_orders
+  resources :likes
 
   # resources :users do
   #   collection do
