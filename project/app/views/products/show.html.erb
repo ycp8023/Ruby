@@ -26,10 +26,11 @@
 <%= render @product %>
 
 
-<!--    <p>-->
-<!--      <strong>产品图片</strong>-->
+    <p>
+      <strong>产品图片</strong>
+      在products/show.html.erb文件 ↓行写成@product.pic_url也不行
       <%#= image_tag(@product.pic)  %>
-<!--    </p>-->
+    </p>
 
 
 <% if admin_signed_in? %>

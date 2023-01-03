@@ -26,6 +26,7 @@
 <% end %>
 
   <% @transaction_orders.each do |transaction_order| %>
+  <% if user_signed_in?  %>
   <% if transaction_order.cured?(current_user) %>
   <div class="panel panel-danger">
   <div class="panel-heading">
@@ -46,6 +47,27 @@
 </div>
   </div>
 <% end %>
+    <% end %>
+  <% if admin_signed_in? %>
+    <div class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title">订单详情</h3>
+      </div>
+      <div class="panel-body">
+        <div id="transaction_orders">
+          <%= render transaction_order %>
+          <div>
+            <p>
+              <strong>订单创建时间：</strong><%= transaction_order.created_at %>
+            </p>
+          </div>
+          <p>
+            <%= link_to "查看订单详情", transaction_order %>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
   <% end %>
 <%#= link_to "创建订单", new_transaction_order_path %>
 
