@@ -44,8 +44,12 @@
     <strong>账户更新时间：</strong><%= current_user.updated_at %>
   </div>
   <div class="panel-body">
+    <strong>用户头像</strong><%= image_tag current_user.pic_url.to_s %>
+  </div>
+  <div class="panel-body">
     <%= link_to "修改信息",  edit_user_registration_path(@current_user) %>
   </div>
+
 </div>
 
 <!--<div >-->

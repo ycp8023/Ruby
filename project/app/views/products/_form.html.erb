@@ -43,17 +43,18 @@
   </div>
 
   <div>
-    <%= form.label :适用性别, style: "display: block" %>
+    <%= form.label :库存, style: "display: block" %>
     <%= form.number_field :gender %>
   </div>
 
   <div>
     <%= form.label :添加时间, style: "display: block" %>
-    <%= form.number_field :added_time %>
+    <%= form.text_field :added_time %>
   </div>
   <div>
     <%= form.label :上传图片, style: "display: block" %>
     <%= form.file_field :pic %>
+    <%= form.hidden_field :pic_cache %>
   </div>
   <br>
   <div>

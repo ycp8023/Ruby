@@ -31,11 +31,11 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     @product.pic = params[:file]
 
-    uploader = PicUploader.new
-
-    uploader.store!(@product.pic)
-
-    uploader.retrieve_from_store!(@product.pic)
+    # uploader = PicUploader.new
+    #
+    # uploader.store!(@product.pic)
+    #
+    # uploader.retrieve_from_store!(@product.pic)
 
     respond_to do |format|
       if @product.save

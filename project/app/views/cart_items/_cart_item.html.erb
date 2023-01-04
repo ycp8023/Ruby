@@ -1,9 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+      .imgwrapper{
+          display: inline-block;
+          float:right;
+          margin-right: 150px;
+          margin-top: 20px;
+      }
+  </style>
+</head>
+<body>
+
+
 <div id="<%= dom_id cart_item %>">
 <!--  <p>-->
 <!--    <strong>User:</strong>-->
     <%#= cart_item.user_id %>
 <!--  </p>-->
-
+  <div class="imgwrapper">  <%= image_tag cart_item.product.pic_url.to_s, size: '150x150' %></div>
   <p>
     <strong>产品编号</strong> <%= cart_item.product.id %>
   </p>

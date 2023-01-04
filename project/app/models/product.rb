@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  mount_uploader :pic, PicUploader
   has_many :colors,dependent: :destroy
   has_many :sizes,dependent: :destroy
   has_many :designs,dependent: :destroy
@@ -11,5 +12,5 @@ class Product < ApplicationRecord
     !!self.stars.find{|star| star.user_id == user.id}
   end
 
-  mount_uploader :pic, PicUploader
+
 end

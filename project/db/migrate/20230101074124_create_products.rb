@@ -8,7 +8,7 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.string :description
       t.string :image_directory
       t.integer :gender
-      t.integer :added_time
+      t.string :added_time
 
       t.timestamps
     end

@@ -19,11 +19,12 @@
       <div class="navbar-header">
         <%#= link_to "呜呜rails学不会の简易电商平台", home_index_url %>
         <a class="navbar-brand" href="/">呜呜rails学不会の简易电商平台</a>
+<!--        <img src="/project/app/assets/icon.jpg" alt="Icon" />-->
       </div>
       <div>
         <% if user_signed_in? %>
           <ul class="nav navbar-nav">
-            <li><a href="#">用户(id:<%= current_user.id %>):村民已登录</a></li>
+            <li><a href="#">用户(<%= current_user.email %>):(<%= current_user.id %>已登录</a></li>
           </ul>
           <ul class="nav navbar-nav">
             <li><%= link_to "产品列表", products_path %></li>
@@ -47,7 +48,7 @@
           <% if admin_signed_in? %>
 <!--            <p>管理员已登录.</p>-->
             <ul class="nav navbar-nav">
-              <li ><a href="#">管理员(id:<%= current_admin.id %>):村民已登录</a></li>
+              <li ><a href="#">管理员(id:<%= current_admin.id %>)<%= current_admin.email %>已登录</a></li>
             </ul>
             <ul class="nav navbar-nav">
               <li><%= link_to "产品管理", products_path %></li>

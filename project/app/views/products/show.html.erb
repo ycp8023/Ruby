@@ -26,13 +26,13 @@
 <%= render @product %>
 
 
-    <p>
-      <strong>产品图片</strong>
-      在products/show.html.erb文件 ↓行写成@product.pic_url也不行
-      <%= image_tag("/public/uploads/tmp/1672764747-77917218419276-0015-7632/IMG_20220508_103718.jpg")  %>
-    </p>
+<!--    <p>-->
+<!--      <strong>产品图片</strong>-->
+<!--      在products/show.html.erb文件 ↓行写成@product.pic_url也不行-->
+      <%#= image_tag("/public/uploads/tmp/1672764747-77917218419276-0015-7632/IMG_20220508_103718.jpg")  %>
+<!--    </p>-->
 
-
+<br>
 <% if admin_signed_in? %>
       <%= link_to "返回产品列表", products_path %>  |
   <%= link_to "编辑产品", edit_product_path(@product) %>
@@ -122,11 +122,11 @@
           <% if admin_signed_in? %>
             <%= form_for [@product, Design.new] do |f| %>
               <p>
-                <%= f.label :sales, "销售" %> <br />
+                <%= f.label :sales, "设计编码" %> <br />
                 <%= f.text_field :sales %>
               </p>
               <p>
-                <%= f.label :design_number, "编码" %> <br />
+                <%= f.label :design_number, "设计信息" %> <br />
                 <%= f.text_field :design_number %>
               </p>
               <p><%= f.submit "添加设计" %></p>

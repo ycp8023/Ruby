@@ -54,6 +54,14 @@
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
+      <div class="field">
+        <p>
+        <%= f.label :上传头像 %><br />
+        <%= f.file_field :pic %>
+        <%= f.hidden_field :pic_cache %>
+      </p>
+  </div>
+
 <br>
   <div class="actions">
     <%= f.submit "确认修改" %>

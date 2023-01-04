@@ -1,4 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+      .imgwrapper{
+          display: inline-block;
+          float:right;
+          margin-right: 150px;
+          margin-top: 25px;
+      }
+  </style>
+</head>
+<body>
 <div id="<%= dom_id product %>">
+  <div class="imgwrapper">  <%= image_tag product.pic_url.to_s, size: '280x250' %></div>
+  <div>
   <p>
     <strong>产品名称:</strong>
     <%= product.product_name %>
@@ -36,13 +54,12 @@
 
   <p>
     <strong>添加时间:</strong>
-    <%= product.added_time %>
+    <%= product.created_at%>
   </p>
-  <p>
-    <strong>产品图片</strong>
-    <%#= image_tag(@product.pic_url)  %>
-    <img src="/project/app/assets/icon.jpg" alt="暂无图片" />
-  </p>
-
+<!--  <p>-->
+<!--    <strong>产品图片</strong>-->
+<!--  </p>-->
+  </div>
 
 </div>
+</body>
