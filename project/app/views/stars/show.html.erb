@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @star %>
+
+<div>
+  <%= link_to "Edit this star", edit_star_path(@star) %> |
+  <%= link_to "Back to stars", stars_path %>
+
+  <%#= button_to "取消收藏", stardel_url(@star), method: :delete %>
+</div>

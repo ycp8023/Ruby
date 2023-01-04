@@ -34,6 +34,14 @@
   <%= button_to "确认收货", @transaction_order, method: :accept %>
 <% end %>
 <% if admin_signed_in? %>
+        <p>
+          <strong>订单当前状态</strong>
+          <% if @transaction_order.sendproded?(current_admin) %>
+            <%= "已发货" %>
+          <% else %>
+            <%= "未发货" %>
+          <% end %>
+        </p>
       <% if @transaction_order.sendproded?(current_admin) %>
         <%= button_to "已发货",sendprod_path(@transaction_order), method:"put" ,disabled: true%>
         <% else %>

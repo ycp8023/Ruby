@@ -9,8 +9,8 @@ class TransactionOrdersController < ApplicationController
   def sendprod
     @transaction_order=TransactionOrder.all.find(params[:id])
     Sendprod.create(admin:current_admin,transaction_order:@transaction_order)
-    @transaction_order.order_status="已发货"
-    @transaction_order.update(transaction_order_params)
+    # @transaction_order.order_status="已发货"
+    # @transaction_order.update(transaction_order_params)
     redirect_to transaction_order_path(@transaction_order)
   end
   # GET /transaction_orders/1 or /transaction_orders/1.json

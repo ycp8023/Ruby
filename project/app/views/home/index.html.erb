@@ -1,7 +1,79 @@
-<h1>个人中心</h1>
+<style>
+    body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.428571429;
+        color: #333333;
+        background-color: #ffffff;
+    }
+    .panel{
+        width: 60%;
+        margin: auto;
+        margin-bottom: 25px;
+    }
+    h2{
+        margin: auto;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+    .list-group{
+        width: 60%;
+        margin: auto;
+        margin-bottom: 25px;
+    }
+</style>
+<h2>呜呜rails学不会の食用教程</h2>
+<div class="panel panel-default">
+  <div class="panel-body">
+<p>
+<h3>登录/注册</h3>提供用户和管理员登录两个入口（两个入口均采用devise实现）已有测试账号：
+<h4>管理员：admin@qq.com(123456)</h4>
+<h4>用户：user@qq.com（123456）</h4>
+<span></span>
+</p>
+  </div></div>
+
+<!--<div class="panel panel-default">-->
+<!--  <div class="panel-heading">-->
+<!--    <h3 class="panel-title">用户功能</h3>-->
+<!--  </div>-->
+<!--  <div class="panel-body">-->
+    <div class="list-group">
+      <h3>用户功能列表</h3>
+      <h5 class="list-group-item active">产品列表 </h5>
+      <h5 class="list-group-item">查看产品详情</h5>
+      <h5 class="list-group-item">加入购物车</h5>
+      <h5 class="list-group-item">收藏产品</h5>
+      <h5 class="list-group-item active">购物车</h5>
+      <h5 class="list-group-item">查看/编辑/移除加购</h5>
+      <h5 class="list-group-item">生成订单</h5>
+      <h5 class="list-group-item active">我的订单</h5>
+      <h5 class="list-group-item">查看订单</h5>
+      <h5 class="list-group-item">编辑订单</h5>
+      <h5 class="list-group-item">取消订单</h5>
+      <h5 class="list-group-item">确认收货</h5>
+      <h5 class="list-group-item active">我的收藏</h5>
+      <h5 class="list-group-item">查看收藏</h5>
+      <h5 class="list-group-item">从收藏夹移除</h5>
+      <h5 class="list-group-item active">个人中心</h5>
+      <h5 class="list-group-item">查看/修改信息</h5>
+      <h5 class="list-group-item">注销账户</h5>
+  </div>
+<div class="list-group">
+  <h3>管理员功能列表</h3>
+  <h5 class="list-group-item active">产品管理 </h5>
+  <h5 class="list-group-item">查看产品详情</h5>
+  <h5 class="list-group-item">添加产品尺寸/颜色/设计</h5>
+  <h5 class="list-group-item">编辑产品信息</h5>
+  <h5 class="list-group-item">删除产品信息</h5>
+  <h5 class="list-group-item active">订单列表</h5>
+  <h5 class="list-group-item">查看订单详情</h5>
+  <h5 class="list-group-item">取消订单</h5>
+  <h5 class="list-group-item">发货</h5>
+</div>
+<!--</div>-->
+<!--</div>-->
+
 <% if current_user %>
 
-  <p> 用户已登录</p>
-
 <% end %>
-<%= link_to '产品列表', products_path %>

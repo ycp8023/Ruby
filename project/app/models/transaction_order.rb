@@ -11,4 +11,8 @@ class TransactionOrder < ApplicationRecord
   def cured?(user)
     self.user === user
   end
+
+  def accproded?(admin)
+    !!self.accprod
+  end
 end

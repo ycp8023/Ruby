@@ -4,4 +4,10 @@ class CartItem < ApplicationRecord
 
   has_many :transaction_orders,dependent: :destroy
   has_many :users, :through => :transaction_orders
+
+
+  def cured?(user)
+    self.user === user
+  end
+
 end

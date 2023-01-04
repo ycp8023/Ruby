@@ -17,12 +17,13 @@
 
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">呜呜rails学不会の简易电商平台</a>
+        <%#= link_to "呜呜rails学不会の简易电商平台", home_index_url %>
+        <a class="navbar-brand" href="/">呜呜rails学不会の简易电商平台</a>
       </div>
       <div>
         <% if user_signed_in? %>
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">用户(id:<%= current_user.id %>):村民已登录</a></li>
+            <li>用户(id:<%= current_user.id %>):村民已登录</li>
           </ul>
           <ul class="nav navbar-nav">
             <li><%= link_to "产品列表", products_path %></li>
@@ -34,6 +35,9 @@
             <li><%= link_to "我的订单", transaction_orders_path %></li>
           </ul>
           <ul class="nav navbar-nav">
+            <li><%= link_to "我的收藏", stars_path %></li>
+          </ul>
+          <ul class="nav navbar-nav">
             <li><%= link_to "个人中心", users_index_path %></li>
           </ul>
           <ul class="nav navbar-nav" style="margin-top: 10px">
@@ -41,9 +45,9 @@
           </ul>
         <% else %>
           <% if admin_signed_in? %>
-            <p>管理员已登录.</p>
+<!--            <p>管理员已登录.</p>-->
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">管理员(id:<%= current_admin.id %>):村民已登录</a></li>
+              <li ><a href="#">管理员(id:<%= current_admin.id %>):村民已登录</a></li>
             </ul>
             <ul class="nav navbar-nav">
               <li><%= link_to "产品管理", products_path %></li>

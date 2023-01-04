@@ -22,6 +22,8 @@
 </style>
 <div id="cart_items">
   <% @cart_items.each do |cart_item| %>
+    <% if user_signed_in?  %>
+    <% if cart_item.cured?(current_user) %>
     <div class="panel panel-success">
       <div class="panel-heading">
         <h3 class="panel-title">订单号<%= cart_item.id %></h3>
@@ -34,9 +36,10 @@
     </p>
       </div>
     </div>
-    <br>
+   <% end %>
   <% end %>
+  <% end %>
+<!--  <p><%#= link_to "返回商品列表", products_path %></p>-->
 </div>
 
 <%#= link_to "New cart item", new_cart_item_path %>
-<%= link_to "返回商品列表", products_path %>

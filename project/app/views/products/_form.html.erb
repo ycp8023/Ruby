@@ -38,7 +38,7 @@
   </div>
 
   <div>
-    <%= form.label :产品图片, style: "display: block" %>
+    <%= form.label :图片位置, style: "display: block" %>
     <%= form.text_field :image_directory %>
   </div>
 
@@ -55,7 +55,8 @@
     <%= form.label :上传图片, style: "display: block" %>
     <%= form.file_field :pic %>
   </div>
+  <br>
   <div>
-    <%= form.submit %>
+    <%= form.submit "创建商品" %>
   </div>
 <% end %>

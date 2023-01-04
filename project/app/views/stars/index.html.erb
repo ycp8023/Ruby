@@ -1,0 +1,46 @@
+<p style="color: green"><%= notice %></p>
+<style>
+    body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.428571429;
+        color: #333333;
+        background-color: #ffffff;
+    }
+    .panel{
+        width: 60%;
+        margin: auto;
+        margin-bottom: 25px;
+    }
+    h2{
+        margin: auto;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+</style>
+
+
+<h2>收藏夹</h2>
+<% if user_signed_in? %>
+  <% @stars.each do |star| %>
+    <% if star.cured?(current_user) %>
+    <div id="stars">
+    <div class="panel panel-warning">
+      <div class="panel-heading">
+        <h3 class="panel-title">收藏产品</h3>
+      </div>
+      <div class="panel-body">
+      <div id="transaction_orders">
+    <%= render star %>
+        <%#= link_to "查看收藏详情",starshow_url(star) %>
+    <%= button_to "取消收藏", stardel_url(star), method: :delete %>
+        </div>
+        </div>
+    </div>
+    </div>
+  <% end %>
+<% end %>
+
+<% end %>
+
+

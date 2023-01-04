@@ -12,6 +12,7 @@ class PicUploader < CarrierWave::Uploader::Base
 
   #这里没搞懂！！这个函数是要做什么的呀
   def store_dir
+
     "uploads/product/"
   end
 
