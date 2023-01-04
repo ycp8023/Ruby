@@ -6,13 +6,46 @@
   <component name="ChangeListManager">
     <list default="true" id="0d656bb8-602d-4f0c-8ea4-01db26de0b3b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/project/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/project/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/assets/config/manifest.js" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/assets/config/manifest.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/assets/stylesheets/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/assets/stylesheets/application.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/app/controllers/products_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/controllers/products_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/app/models/star.rb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/models/star.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/controllers/transaction_orders_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/controllers/transaction_orders_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/javascript/application.js" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/javascript/application.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/models/product.rb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/models/product.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/models/transaction_order.rb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/models/transaction_order.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/views/admins/passwords/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/views/admins/passwords/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/views/admins/registrations/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/views/admins/registrations/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/views/admins/sessions/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/views/admins/sessions/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/views/cart_items/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/views/cart_items/_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/views/cart_items/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/views/cart_items/edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/views/cart_items/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/views/cart_items/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/views/cart_items/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/views/cart_items/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/views/cart_items/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/views/cart_items/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/views/home/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/views/home/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/views/layouts/application.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/views/layouts/application.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/views/products/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/views/products/_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/views/products/_product.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/views/products/_product.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/views/products/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/views/products/edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/views/products/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/views/products/index.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/app/views/products/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/views/products/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/views/transaction_orders/_form.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/views/transaction_orders/_form.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/views/transaction_orders/_transaction_order.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/views/transaction_orders/_transaction_order.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/views/transaction_orders/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/views/transaction_orders/edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/views/transaction_orders/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/views/transaction_orders/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/views/transaction_orders/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/views/transaction_orders/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/views/transaction_orders/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/views/transaction_orders/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/views/users/index.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/views/users/index.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/views/users/passwords/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/views/users/passwords/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/views/users/registrations/edit.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/views/users/registrations/edit.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/views/users/registrations/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/views/users/registrations/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/views/users/sessions/new.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/views/users/sessions/new.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/app/views/users/shared/_links.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/project/app/views/users/shared/_links.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/config/importmap.rb" beforeDir="false" afterPath="$PROJECT_DIR$/project/config/importmap.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project/config/initializers/assets.rb" beforeDir="false" afterPath="$PROJECT_DIR$/project/config/initializers/assets.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/project/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/project/config/routes.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/db/migrate/20230103035921_create_stars.rb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/project/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/project/db/schema.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project/test/fixtures/stars.yml" beforeDir="false" afterPath="$PROJECT_DIR$/project/test/fixtures/stars.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +74,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "//wsl$/Ubuntu-20.04/home/lilas/ruby/20373630/project/app/views/likes",
+    "last_opened_file_path": "//wsl$/Ubuntu-20.04/home/lilas/ruby/20373630/project/app/assets",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -52,6 +85,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="\\wsl$\Ubuntu-20.04\home\lilas\ruby\20373630\project\app\assets" />
       <recent name="\\wsl$\Ubuntu-20.04\home\lilas\ruby\20373630\project\app\views\likes" />
     </key>
   </component>
@@ -165,7 +199,7 @@
       <updated>1666360632517</updated>
       <workItem from="1666360638161" duration="1100000" />
       <workItem from="1666363635167" duration="10860000" />
-      <workItem from="1672644510385" duration="41066000" />
+      <workItem from="1672644510385" duration="90667000" />
     </task>
     <servers />
   </component>
