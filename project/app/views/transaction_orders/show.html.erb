@@ -27,11 +27,20 @@
 
 <% if user_signed_in? %>
 <div>
-  <%= link_to "编辑订单", edit_transaction_order_path(@transaction_order) %> |
-  <%= link_to "返回我的订单", transaction_orders_path %>
-  <br><br>
 
-  <%= button_to "确认收货", @transaction_order, method: :accept %>
+  <p>
+    <strong>订单当前状态</strong>
+    <% if @transaction_order.accproded?(current_user) %>
+      <%= "已收货" %>
+    <% else %>
+      <%= "未收货" %>
+    <% end %>
+  </p>
+  <% if @transaction_order.accproded?(current_user) %>
+    <%= button_to "已完成",accprod_path(@transaction_order), method:"put" ,disabled: true%>
+  <% else %>
+    <%= button_to "确认收货",accprod_path(@transaction_order), method:"put" %>
+  <% end %>
 <% end %>
 <% if admin_signed_in? %>
         <p>
@@ -49,8 +58,9 @@
       <% end %>
   <% end %>
   <br>
-  <%= button_to "取消订单", @transaction_order, method: :delete %>
-  <%= link_to "返回订单列表", transaction_orders_path %>
+  <%= button_to "取消订单", @transaction_order, method: :delete %><br>
+  <%= link_to "返回订单列表", transaction_orders_path %>  |
+    <%= link_to "编辑订单", edit_transaction_order_path(@transaction_order) %>
 </div>
   </div>
 </div>

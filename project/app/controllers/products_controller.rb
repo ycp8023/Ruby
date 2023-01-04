@@ -35,7 +35,7 @@ class ProductsController < ApplicationController
 
     uploader.store!(@product.pic)
 
-    uploader.retrieve_from_store!(@product.image_directory)
+    uploader.retrieve_from_store!(@product.pic)
 
     respond_to do |format|
       if @product.save

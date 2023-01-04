@@ -23,7 +23,7 @@
       <div>
         <% if user_signed_in? %>
           <ul class="nav navbar-nav">
-            <li>用户(id:<%= current_user.id %>):村民已登录</li>
+            <li><a href="#">用户(id:<%= current_user.id %>):村民已登录</a></li>
           </ul>
           <ul class="nav navbar-nav">
             <li><%= link_to "产品列表", products_path %></li>

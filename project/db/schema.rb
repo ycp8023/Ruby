@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_03_152512) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_04_055724) do
+  create_table "accprods", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "transaction_order_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["transaction_order_id"], name: "index_accprods_on_transaction_order_id"
+    t.index ["user_id"], name: "index_accprods_on_user_id"
+  end
+
   create_table "actions", force: :cascade do |t|
     t.string "action_type", limit: 64, null: false
     t.string "action_option", limit: 64
@@ -175,6 +184,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_03_152512) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "accprods", "transaction_orders"
+  add_foreign_key "accprods", "users"
   add_foreign_key "addcartships", "users"
   add_foreign_key "addcartships", "users", column: "product_id"
   add_foreign_key "cart_items", "products"

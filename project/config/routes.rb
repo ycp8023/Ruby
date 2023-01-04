@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   put '/products/:id/stars',to: 'products#star',as: 'star'
   put '/transaction_orders/:id/sendprods',to:'transaction_orders#sendprod',as:'sendprod'
+  put '/transaction_orders/:id/accprods',to:'transaction_orders#accprod',as:'accprod'
   # get '/products/stars' ,to: 'products#star#index',as: 'stars'
   get '/stars' ,to: 'stars#index',as: 'starshow'
   delete '/stars/:id',to: 'stars#destroy',as: 'stardel'

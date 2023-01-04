@@ -13,6 +13,13 @@ class TransactionOrdersController < ApplicationController
     # @transaction_order.update(transaction_order_params)
     redirect_to transaction_order_path(@transaction_order)
   end
+
+
+  def accprod
+    @transaction_order=TransactionOrder.all.find(params[:id])
+    Accprod.create(user:current_user,transaction_order:@transaction_order)
+    redirect_to transaction_order_path(@transaction_order)
+  end
   # GET /transaction_orders/1 or /transaction_orders/1.json
   def show
   end
